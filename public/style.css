@@ -1,0 +1,60 @@
+body {
+	max-width: 1080px;
+	font-family: Helvetica, sanf-serif;
+}
+label,
+button {
+	display: block;
+	margin-top: 1em;
+}
+input {
+	display: block;
+}
+code > input,
+input[type='checkbox'] {
+	display: inline;
+}
+form {
+	background: #f9f9f9;
+	padding: 1em;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+#status,
+code,
+code > input {
+	font-family: Monaco, 'Courier New', monospace;
+}
+#status {
+	margin: 1em 0;
+}
+#status.error {
+	color: red;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 1em;
+	border: 1px solid #444;
+}
+th,
+tr:nth-child(even) td {
+	background-color: #f4f4f4;
+}
+th,
+td {
+	text-align: left;
+	padding: 15px 10px;
+}
+thead th:first-child,
+tbody td:first-child {
+	width: 70%;
+}
+
+@media print {
+	.hide-on-print {
+		display: none;
+	}
+}

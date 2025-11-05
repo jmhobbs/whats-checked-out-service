@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>What's Checked Out?</title>
+		<script src="/script.js"></script>
+		<link rel="stylesheet" href="/style.css" />
+	</head>
+	<body>
+		<div class="hide-on-print">
+			<h1>What's Checked Out?</h1>
+			<p>Enter your library account details below to see what items you have checked out, including across all your linked accounts.</p>
+
+			<form>
+				<label for="library">Library:</label>
+				<code>https://<input type="text" id="library" name="library" value="blair" required />.biblionix.com</code>
+
+				<label for="username">Account/Username:</label>
+				<input type="text" id="username" name="username" required />
+
+				<label for="password">Password:</label>
+				<input type="password" id="password" name="password" required />
+
+				<button type="submit">See What's Checked Out</button>
+
+				<div id="status"></div>
+			</form>
+		</div>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Due Date</th>
+					<th>Account</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Results will be populated here -->
+			</tbody>
+		</table>
+	</body>
+</html>

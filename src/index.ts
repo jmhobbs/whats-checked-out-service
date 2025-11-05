@@ -1,18 +1,32 @@
-/**
- * Welcome to Cloudflare Workers! This is your first worker.
- *
- * - Run `npm run dev` in your terminal to start a development server
- * - Open a browser tab at http://localhost:8787/ to see your worker in action
- * - Run `npm run deploy` to publish your worker
- *
- * Bind resources to your worker in `wrangler.jsonc`. After adding bindings, a type definition for the
- * `Env` object can be regenerated with `npm run cf-typegen`.
- *
- * Learn more at https://developers.cloudflare.com/workers/
- */
-
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+		const url = new URL(request.url);
+
+		if (request.method === 'POST' && request.headers.get('content-type')?.includes('form')) {
+			const formData = await request.formData();
+			const subdomain = formData.get('library')!.toString();
+
+			switch (url.pathname) {
+				case '/api/login':
+					const loginFormData = new FormData();
+					loginFormData.append('username', formData.get('username')!.toString());
+					loginFormData.append('password', formData.get('password')!.toString());
+
+					return fetch(`https://${subdomain}.biblionix.com/catalog/ajax_backend/login.xml.pl`, {
+						method: 'POST',
+						body: loginFormData,
+					});
+				case '/api/account':
+					const accountFormData = new FormData();
+					accountFormData.append('session', formData.get('session')!.toString());
+
+					return fetch(`https://${subdomain}.biblionix.com/catalog/ajax_backend/account.xml.pl`, {
+						method: 'POST',
+						body: accountFormData,
+					});
+			}
+		}
+
+		return env.ASSETS.fetch(request);
 	},
 } satisfies ExportedHandler<Env>;
