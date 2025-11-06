@@ -8,7 +8,10 @@
 	"main": "src/index.ts",
 	"compatibility_date": "2025-11-05",
 	"observability": {
-		"enabled": true,
+		"enabled": true
 	},
-	"assets": { "directory": "./public/", "binding": "ASSETS" },
+	"assets": {
+		"directory": "./frontend/dist/",
+		"binding": "ASSETS"
+	}
 }
