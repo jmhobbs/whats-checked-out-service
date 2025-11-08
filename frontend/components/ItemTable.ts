@@ -2,20 +2,22 @@ import { html, css, LitElement } from 'lit';
 import { Item } from '../item';
 import { customElement } from 'lit/decorators.js';
 
-
-import './table.css';
-
 export interface ItemTableProps {
 	items: Item[];
 }
 
 @customElement('item-table')
 export class ItemTable extends LitElement {
-	declare items: string[];
+	declare items: Item[];
 
 	static properties = {
 		items: { type: Array },
 	};
+
+	constructor() {
+		super();
+		this.items = [];
+	}
 
 	static styles = css`
 table {
