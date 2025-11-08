@@ -14,7 +14,23 @@ type Story = StoryObj<ItemTableProps>;
 
 export const Full: Story = {
 	args: {
-		items: ['One'],
+		items: [
+			{
+				title: 'The Three Miusketeers',
+				author: 'Dumas, Alexandre',
+				dueDate: '2024-07-01',
+			},
+			{
+				title: 'Pride and Prejudice',
+				author: 'Austen, Jane',
+				dueDate: '2024-07-15',
+			},
+			{
+				title: 'Cryptonomicon',
+				author: 'Stephenson, Neal',
+				dueDate: '2024-08-01',
+			}
+		],
 	},
 };
 

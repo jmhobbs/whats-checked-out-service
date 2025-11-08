@@ -33,26 +33,6 @@ code > input {
 	color: red;
 }
 
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-top: 1em;
-	border: 1px solid #444;
-}
-th,
-tr:nth-child(even) td {
-	background-color: #f4f4f4;
-}
-th,
-td {
-	text-align: left;
-	padding: 15px 10px;
-}
-thead th:first-child,
-tbody td:first-child {
-	width: 70%;
-}
-
 @media print {
 	.hide-on-print {
 		display: none;
