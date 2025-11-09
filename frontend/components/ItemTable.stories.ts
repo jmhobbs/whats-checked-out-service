@@ -6,7 +6,7 @@ import './ItemTable';
 const meta = {
 	title: 'Item Table',
 	tags: ['autodocs'],
-	render: (args) => html`<item-table .items=${args.items}></item-table>`,
+	render: (args) => html`<item-table .items=${args.items} .account=${args.account} ></item-table>`,
 } satisfies Meta<ItemTableProps>;
 
 export default meta;
@@ -31,6 +31,7 @@ export const Full: Story = {
 				dueDate: '2024-08-01',
 			}
 		],
+		account: 'John Hobbs',
 	},
 };
 

@@ -4,19 +4,23 @@ import { customElement } from 'lit/decorators.js';
 
 export interface ItemTableProps {
 	items: Item[];
+	account?: string;
 }
 
 @customElement('item-table')
 export class ItemTable extends LitElement {
 	declare items: Item[];
+	declare account?: string;
 
 	static properties = {
 		items: { type: Array },
+		account: { type: String },
 	};
 
 	constructor() {
 		super();
 		this.items = [];
+		this.account = undefined;
 	}
 
 	static styles = css`
@@ -38,6 +42,10 @@ td {
 	padding: 15px 10px;
 }
 
+th {
+	border-bottom: 2px solid #444;
+}
+
 thead th:first-child,
 tbody td:first-child {
 	width: 70%;
@@ -52,6 +60,7 @@ tbody td:first-child {
 			<th>Title</th>
 			<th>Author</th>
 			<th>Due Date</th>
+			<th>Account</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -62,6 +71,7 @@ tbody td:first-child {
 				<td>${item.title}</td>
 				<td>${item.author}</td>
 				<td>${item.dueDate}</td>
+				<td>${this.account}</td>
 			</tr>
 			`
 		)}
