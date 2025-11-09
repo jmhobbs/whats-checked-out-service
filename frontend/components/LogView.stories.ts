@@ -4,7 +4,7 @@ import type { LogViewProps } from './LogView';
 import './LogView';
 
 const meta = {
-	title: 'Log View',
+	title: 'Components/Log View',
 	tags: ['autodocs'],
 	render: (args) => html`<log-view .messages=${args.messages}></log-view>`,
 } satisfies Meta<LogViewProps>;

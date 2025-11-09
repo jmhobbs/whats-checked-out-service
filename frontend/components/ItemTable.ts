@@ -1,6 +1,11 @@
 import { html, css, LitElement } from 'lit';
-import { Item } from '../item';
 import { customElement } from 'lit/decorators.js';
+
+export interface Item {
+	title: string;
+	author: string;
+	dueDate: string;
+}
 
 export interface ItemTableProps {
 	items: Item[];

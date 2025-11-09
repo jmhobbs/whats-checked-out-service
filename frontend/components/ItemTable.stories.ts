@@ -4,7 +4,7 @@ import type { ItemTableProps } from './ItemTable';
 import './ItemTable';
 
 const meta = {
-	title: 'Item Table',
+	title: 'Components/Item Table',
 	tags: ['autodocs'],
 	render: (args) => html`<item-table .items=${args.items} .account=${args.account} ></item-table>`,
 } satisfies Meta<ItemTableProps>;

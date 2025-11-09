@@ -4,7 +4,7 @@ import type { LoginFormProps } from './LoginForm';
 import './LoginForm';
 
 const meta = {
-	title: 'Login Form',
+	title: 'Components/Login Form',
 	tags: ['autodocs'],
 	render: (args) => html`<login-form .subdomain=${args.subdomain} .onSubmit=${args.onSubmit}></login-form>`,
 } satisfies Meta<LoginFormProps>;
