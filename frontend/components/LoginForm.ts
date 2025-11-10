@@ -1,15 +1,17 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
+export type LoginFormSubmitCallback = (subdomain: string, username: string, password: string) => void;
+
 export interface LoginFormProps {
 	subdomain?: string;
-	onSubmit?: (e: Event) => void;
+	onSubmit?: LoginFormSubmitCallback;
 }
 
 @customElement('login-form')
 export class LoginForm extends LitElement {
 	declare subdomain?: string;
-	declare onSubmit?: (e: Event) => void;
+	declare onSubmit?: LoginFormSubmitCallback;
 
 	static properties = {
 		subdomain: { type: String },
@@ -31,9 +33,8 @@ input[type='checkbox'] {
 }
 form {
 	background: #f9f9f9;
-	padding: 1em;
-	border: 1px solid #ddd;
-	border-radius: 5px;
+	padding: 10px;
+	border: 1px solid #ccc;
 }
 	`;
 
@@ -58,9 +59,12 @@ form {
 
 	_onSubmit(e: Event) {
 		e.preventDefault();
-		console.log('on submit', this.onSubmit);
 		if(this.onSubmit) {
-			this.onSubmit(e);
+			this.onSubmit(
+				this.renderRoot.querySelector<HTMLInputElement>('#library')!.value,
+				this.renderRoot.querySelector<HTMLInputElement>('#username')!.value,
+				this.renderRoot.querySelector<HTMLInputElement>('#password')!.value,
+			);
 		}
 		return false;
 	}

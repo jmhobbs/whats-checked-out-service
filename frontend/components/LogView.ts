@@ -28,9 +28,11 @@ export class LogView extends LitElement {
 		pre {
 			background-color: rgb(248, 248, 248);
 			padding: 10px;
+			margin: 0;
 			border: 1px solid #ccc;
 			font-family: monospace;
 			white-space: pre-wrap;
+			overflow: scroll;
 		}
 		div {
 			margin: 0;
@@ -48,7 +50,7 @@ export class LogView extends LitElement {
 	`;
 
 	render() {
-		return html`<pre style="overflow: scroll; height: 200px;">${this.messages.map((log) => html`<div class="${log.level}">${log.message}</div>`)}</pre>`
+		return html`<pre>${this.messages.map((log) => html`<div class="${log.level}">${log.message}</div>`)}</pre>`
 	}
 
 	protected updated(_changedProperties: PropertyValues): void {

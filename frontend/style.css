@@ -1,36 +1,6 @@
 body {
-	max-width: 1080px;
+	max-width: 1200px;
 	font-family: Helvetica, sanf-serif;
-}
-label,
-button {
-	display: block;
-	margin-top: 1em;
-}
-input {
-	display: block;
-}
-code > input,
-input[type='checkbox'] {
-	display: inline;
-}
-form {
-	background: #f9f9f9;
-	padding: 1em;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-}
-
-#status,
-code,
-code > input {
-	font-family: Monaco, 'Courier New', monospace;
-}
-#status {
-	margin: 1em 0;
-}
-#status.error {
-	color: red;
 }
 
 @media print {

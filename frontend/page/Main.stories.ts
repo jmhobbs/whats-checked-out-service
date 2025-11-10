@@ -15,19 +15,55 @@ type Story = StoryObj<MainPageProps>;
 export const Full: Story = {
 	args: {
 		subdomain: 'example',
-		messages :[
-			{
-				message: '🙌 Good as gold and right as rain...',
-				level: 'info',
-			},
-			{
-				message: '⚠ Something is not right...',
-				level: 'warning',
-			},
-			{
-				message: 'This is fine. 🔥 🐶 🔥',
-				level: 'error',
-			},
+		messages: [
+				{
+					message: '🙌 Good as gold and right as rain...',
+					level: 'info',
+				},
+				{
+					message: '⚠ Something is not right...',
+					level: 'warning',
+				},
+				{
+					message: 'This is fine. 🔥 🐶 🔥',
+					level: 'error',
+				},
+				{
+					message: '🙌 Good as gold and right as rain...',
+					level: 'info',
+				},
+				{
+					message: '⚠ Something is not right...',
+					level: 'warning',
+				},
+				{
+					message: 'This is fine. 🔥 🐶 🔥',
+					level: 'error',
+				},
+				{
+					message: '🙌 Good as gold and right as rain...',
+					level: 'info',
+				},
+				{
+					message: '⚠ Something is not right...',
+					level: 'warning',
+				},
+				{
+					message: 'This is fine. 🔥 🐶 🔥',
+					level: 'error',
+				},
+				{
+					message: '🙌 Good as gold and right as rain...',
+					level: 'info',
+				},
+				{
+					message: '⚠ Something is not right...',
+					level: 'warning',
+				},
+				{
+					message: 'This is fine. 🔥 🐶 🔥',
+					level: 'error',
+				},
 		],
 	},
 };
