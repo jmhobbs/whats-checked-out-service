@@ -41,7 +41,7 @@ form {
 			return html`
 			<form @submit=${this._onSubmit}>
 				<label for="library">Library:</label>
-				<code>https://<input type="text" id="library" name="library" value="${this.subdomain}" required />.biblionix.com</code>
+				<code><input type="text" id="library" name="library" value="${this.subdomain}" required />.biblionix.com</code>
 
 				<label for="username">Account/Username:</label>
 				<input type="text" id="username" name="username" required />

@@ -16,15 +16,15 @@ export const Full: Story = {
 	args: {
 			messages :[
 				{
-					message: 'Application started successfully.',
+					message: '🙌 Good as gold and right as rain...',
 					level: 'info',
 				},
 				{
-					message: 'Warning: Low disk space on drive C:.',
+					message: '⚠ Something is not right...',
 					level: 'warning',
 				},
 				{
-					message: 'Error: Unable to connect to the database.',
+					message: 'This is fine. 🔥 🐶 🔥',
 					level: 'error',
 				},
 		],
