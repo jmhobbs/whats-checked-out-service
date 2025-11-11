@@ -6,7 +6,12 @@ import './Main';
 const meta = {
 	title: 'Pages/Main',
 	tags: ['autodocs'],
-	render: (args) => html`<main-page .messages=${args.messages} .subdomain=${args.subdomain}></main-page>`,
+	render: (args) => html`
+		<main-page
+			.messages=${args.messages}
+			.subdomain=${args.subdomain}
+			.items=${args.items}
+		></main-page>`,
 } satisfies Meta<MainPageProps>;
 
 export default meta;
@@ -65,11 +70,29 @@ export const Full: Story = {
 					level: 'error',
 				},
 		],
+		items: [
+			{
+				title: 'The Three Miusketeers',
+				author: 'Dumas, Alexandre',
+				dueDate: '2024-07-01',
+			},
+			{
+				title: 'Pride and Prejudice',
+				author: 'Austen, Jane',
+				dueDate: '2024-07-15',
+			},
+			{
+				title: 'Cryptonomicon',
+				author: 'Stephenson, Neal',
+				dueDate: '2024-08-01',
+			}
+		]
 	},
 };
 
 export const Empty: Story = {
 	args: {
 		messages: [],
+		items: [],
 	},
 };

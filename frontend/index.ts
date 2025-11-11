@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const main = document.createElement('main-page') as Main;
 	main.subdomain = 'blair';
 	main.messages = [];
+	main.items = [];
 
 	const logger = new Logger(main);
 	logger.info("Welcome!  Let's see what's checked out!");

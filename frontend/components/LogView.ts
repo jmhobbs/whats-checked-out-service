@@ -32,7 +32,6 @@ export class LogView extends LitElement {
 			border: 1px solid #ccc;
 			font-family: monospace;
 			white-space: pre-wrap;
-			overflow: scroll;
 		}
 		div {
 			margin: 0;

@@ -1,15 +1,18 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
+import{ type Item } from '../components/ItemTable';
 import { type LogMessage } from '../components/LogView';
 import { type LoginFormSubmitCallback } from '../components/LoginForm';
 
 import '../components/LoginForm';
 import '../components/LogView';
+import '../components/ItemTable';
 
 export interface MainPageProps {
 	subdomain?: string;
 	messages: LogMessage[];
+	items: Item[];
 	onSubmit?: LoginFormSubmitCallback
 }
 
@@ -17,11 +20,13 @@ export interface MainPageProps {
 export class Main extends LitElement {
 	declare subdomain?: string;
 	declare messages: LogMessage[];
+	declare items: Item[];
 	declare onSubmit?: LoginFormSubmitCallback;
 
 	static properties = {
 		subdomain: { type: String },
 		messages: { type: Array },
+		items: { type: Array },
 		onSubmit: { type: Function },
 	};
 
@@ -59,6 +64,7 @@ export class Main extends LitElement {
 					<log-view .messages=${this.messages}></log-view>
 				</div>
 			</div>
+			<item-table .items=${this.items}></item-table>
 		`
 	}
 }

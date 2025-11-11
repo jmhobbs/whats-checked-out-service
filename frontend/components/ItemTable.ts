@@ -1,6 +1,8 @@
 import { html, css, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
+import './DateDisplay'
+
 export interface Item {
 	title: string;
 	author: string;
@@ -50,11 +52,6 @@ td {
 th {
 	border-bottom: 2px solid #444;
 }
-
-thead th:first-child,
-tbody td:first-child {
-	width: 70%;
-}
 	`;
 
 	render() {
@@ -75,7 +72,7 @@ tbody td:first-child {
 			<tr>
 				<td>${item.title}</td>
 				<td>${item.author}</td>
-				<td>${item.dueDate}</td>
+				<td><date-display .date=${item.dueDate} /></td>
 				<td>${this.account}</td>
 			</tr>
 			`
