@@ -19,8 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
 			const sessionId = await api.login(username, password);
 			logger.info('Logged in! Fetching account information...');
 			console.log(sessionId);
+
+			const accountData = await api.account(sessionId);
+			logger.info(`Fetched account data...`);
+
+			main.items = accountData.items;
 		} catch (e) {
 			logger.error(e);
+			return;
 		}
 	}
 
