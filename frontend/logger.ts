@@ -15,8 +15,9 @@ export class Logger {
 		this.sink.messages = [...this.sink.messages, { level: 'info', message }];
 	}
 
-	warning(message: string) {
-		this.sink.messages = [...this.sink.messages, { level: 'warning', message }];
+	warning(message: string|Error) {
+		const msg = message instanceof Error ? message.message : message;
+		this.sink.messages = [...this.sink.messages, { level: 'warning', message: msg }];
 	}
 
 	error(message: string|Error) {
