@@ -3,31 +3,33 @@ import { customElement } from 'lit/decorators.js';
 
 import './DateDisplay'
 
+export interface Account {
+	cardNumber: string;
+	name?: string;
+}
+
 export interface Item {
 	title: string;
 	author: string;
 	dueDate: string;
+	account?: Account;
 }
 
 export interface ItemTableProps {
 	items: Item[];
-	account?: string;
 }
 
 @customElement('item-table')
 export class ItemTable extends LitElement {
 	declare items: Item[];
-	declare account?: string;
 
 	static properties = {
 		items: { type: Array },
-		account: { type: String },
 	};
 
 	constructor() {
 		super();
 		this.items = [];
-		this.account = undefined;
 	}
 
 	static styles = css`
@@ -52,9 +54,23 @@ td {
 th {
 	border-bottom: 2px solid #444;
 }
+
+code {
+	background-color: #555;
+	color: #fff;
+	padding: 2px 5px;
+	border-radius: 5px;
+	vertical-align: top;
+}
 	`;
 
 	render() {
+		const account = (item: Item) => {
+			if(item.account) {
+				return html`${item.account?.name} <code>${item.account?.cardNumber}</code>`;
+			}
+		};
+
 		return html`
 <table>
 	<thead>
@@ -73,7 +89,7 @@ th {
 				<td>${item.title}</td>
 				<td>${item.author}</td>
 				<td><date-display .date=${item.dueDate} /></td>
-				<td>${this.account}</td>
+				<td>${account(item)}</td>
 			</tr>
 			`
 		)}

@@ -51,7 +51,7 @@ export class Client {
 		const account = xmlParser.parseFromString(await accountResponse.text(), 'application/xml');
 
 		const name = account.querySelector('name')?.getAttribute('printable');
-		const cardNumber = account.querySelector('root')?.getAttribute('card');
+		const cardNumber = account.querySelector('root')?.getAttribute('card') || 'unknown';
 
 		if(!name) {
 			throw new Error('Invalid account response from server');
@@ -61,12 +61,16 @@ export class Client {
 			title: deobfuscate(xmlItem.getAttribute('title') || ''),
 			author: deobfuscate(xmlItem.getAttribute('author') || ''),
 			dueDate: xmlItem.getAttribute('due_raw') || '',
+			account: {
+				name: name,
+				cardNumber,
+			}
 		}));
 
 		const linkedCards = [...(account.querySelectorAll('linked_card') || [])].map((linkedCard) => linkedCard.getAttribute("card_number"));
 
 		return {
-			name: name,
+			name,
 			cardNumber,
 			items,
 			linkedCards,

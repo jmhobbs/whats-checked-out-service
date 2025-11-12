@@ -52,6 +52,12 @@ export class Main extends LitElement {
 			min-height: 100%;
 		}
 	}
+
+	@media print {
+		.hide-on-print {
+			display: none;
+		}
+	}
 	`;
 
 	render() {

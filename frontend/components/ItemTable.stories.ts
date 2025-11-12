@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/web-components-vite';
 import { html } from 'lit';
+
 import type { ItemTableProps } from './ItemTable';
 import './ItemTable';
 
 const meta = {
 	title: 'Components/Item Table',
 	tags: ['autodocs'],
-	render: (args) => html`<item-table .items=${args.items} .account=${args.account} ></item-table>`,
+	render: (args) => html`<item-table .items=${args.items} />`,
 } satisfies Meta<ItemTableProps>;
 
 export default meta;
@@ -19,6 +20,10 @@ export const Full: Story = {
 				title: 'The Three Miusketeers',
 				author: 'Dumas, Alexandre',
 				dueDate: '2024-07-01',
+				account: {
+					name: 'John Hobbs',
+					cardNumber: '12345',
+				}
 			},
 			{
 				title: 'Pride and Prejudice',
@@ -29,9 +34,11 @@ export const Full: Story = {
 				title: 'Cryptonomicon',
 				author: 'Stephenson, Neal',
 				dueDate: '2024-08-01',
+				account: {
+					cardNumber: '54321',
+				},
 			}
 		],
-		account: 'John Hobbs',
 	},
 };
 
